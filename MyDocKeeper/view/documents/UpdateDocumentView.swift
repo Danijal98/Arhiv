@@ -14,6 +14,10 @@ struct UpdateDocumentView: View {
     
     @Bindable var document: Document
     
+    @State private var oldDocumentName: String = ""
+    @State private var oldDocumentDrawer: String = ""
+    @State private var oldDocumentDescription: String = ""
+    
     @Query private var drawers: [Drawer]
     @State private var selectedDrawer: Drawer?
     @State private var newDrawerName: String = ""
@@ -37,6 +41,7 @@ struct UpdateDocumentView: View {
             .navigationTitle("add-document")
             .navigationBarItems(
                 leading: Button("cancel") {
+                    revertDocument()
                     dismiss()
                 },
                 trailing: Button("done") {
@@ -47,6 +52,10 @@ struct UpdateDocumentView: View {
             )
             .onAppear {
                 selectedDrawer = drawers.first { $0.name == document.drawer }
+                
+                oldDocumentName = document.name
+                oldDocumentDrawer = document.drawer
+                oldDocumentDescription = document.documentDescription
             }
         }
     }
@@ -64,6 +73,12 @@ struct UpdateDocumentView: View {
         } else if selectedDrawer != nil {
             document.drawer = selectedDrawer!.name
         }
+    }
+    
+    private func revertDocument() {
+        document.name = oldDocumentName
+        document.drawer = oldDocumentDrawer
+        document.documentDescription = oldDocumentDescription
     }
 }
 
