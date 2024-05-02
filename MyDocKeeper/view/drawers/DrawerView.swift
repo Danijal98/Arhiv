@@ -12,6 +12,7 @@ struct DrawerView: View {
     var drawer: Drawer
     var goToDocumentsClicked: () -> Void
     
+    @State private var showEdit = false
     @Query private var documents: [Document]
     
     var body: some View {
@@ -23,6 +24,14 @@ struct DrawerView: View {
             }
         }
         .navigationTitle(drawer.name)
+        .navigationBarItems(trailing: Button(action: {
+            showEdit = true
+        }) {
+            Text("edit")
+        })
+        .sheet(isPresented: $showEdit) {
+            UpdateDrawerView(drawer: drawer)
+        }
         .overlay {
             if drawerDocuments.isEmpty {
                 ContentUnavailableView(label: {

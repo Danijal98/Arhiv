@@ -15,6 +15,7 @@
 		FA53EC722BDFA77B0099FA08 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53EC712BDFA77B0099FA08 /* SettingsView.swift */; };
 		FA9CED202BE3B175006248B8 /* DocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CED1F2BE3B175006248B8 /* DocumentsView.swift */; };
 		FA9CED242BE3B256006248B8 /* DrawersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CED232BE3B256006248B8 /* DrawersView.swift */; };
+		FA9CED262BE3E3FE006248B8 /* UpdateDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CED252BE3E3FE006248B8 /* UpdateDrawerView.swift */; };
 		FAE03F2B2BDEB4B8001C9C45 /* MyDocKeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F2A2BDEB4B8001C9C45 /* MyDocKeeperApp.swift */; };
 		FAE03F2D2BDEB4B8001C9C45 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F2C2BDEB4B8001C9C45 /* MainView.swift */; };
 		FAE03F312BDEB4BA001C9C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE03F302BDEB4BA001C9C45 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		FA53EC712BDFA77B0099FA08 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA9CED1F2BE3B175006248B8 /* DocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsView.swift; sourceTree = "<group>"; };
 		FA9CED232BE3B256006248B8 /* DrawersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawersView.swift; sourceTree = "<group>"; };
+		FA9CED252BE3E3FE006248B8 /* UpdateDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDrawerView.swift; sourceTree = "<group>"; };
 		FAE03F272BDEB4B8001C9C45 /* MyDocKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDocKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE03F2A2BDEB4B8001C9C45 /* MyDocKeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocKeeperApp.swift; sourceTree = "<group>"; };
 		FAE03F2C2BDEB4B8001C9C45 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				FA53EC5F2BDECB560099FA08 /* DrawerView.swift */,
 				FA9CED232BE3B256006248B8 /* DrawersView.swift */,
+				FA9CED252BE3E3FE006248B8 /* UpdateDrawerView.swift */,
 			);
 			path = drawers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				FAE03F2D2BDEB4B8001C9C45 /* MainView.swift in Sources */,
 				FA53EC642BDECB710099FA08 /* AddDocumentView.swift in Sources */,
 				FAE03F2B2BDEB4B8001C9C45 /* MyDocKeeperApp.swift in Sources */,
+				FA9CED262BE3E3FE006248B8 /* UpdateDrawerView.swift in Sources */,
 				FA9CED242BE3B256006248B8 /* DrawersView.swift in Sources */,
 				FA53EC602BDECB560099FA08 /* DrawerView.swift in Sources */,
 				FAE03F582BDEB79B001C9C45 /* Document.swift in Sources */,
