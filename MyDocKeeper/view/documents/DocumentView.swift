@@ -16,7 +16,11 @@ struct DocumentView: View {
         List {
             listItemHorizontal(title: "document-name", value: document.name)
             
-            NavigationLink(destination: DrawerView(drawer: Drawer(name: document.drawer))) {
+            NavigationLink(destination: DrawerView(
+                drawer: Drawer(name: document.drawer),
+                goToDocumentsClicked: {}
+                )
+            ) {
                 listItemHorizontal(title: "document-located-in", value: document.drawer)
             }
             

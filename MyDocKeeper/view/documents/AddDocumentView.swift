@@ -26,7 +26,6 @@ struct AddDocumentView: View {
                     ForEach(drawers, id: \.self) { drawer in
                         Text(drawer.name).tag(drawer as Drawer?)
                     }
-                    .onDelete(perform: deleteDrawer)
                     Text("document-add-new-drawer").tag(nil as Drawer?)
                 }
                 if selectedDrawer == nil {
@@ -46,10 +45,6 @@ struct AddDocumentView: View {
                 .disabled(!canAddDocument)
             )
         }
-    }
-    
-    private func deleteDrawer(at offsets: IndexSet) {
-        print("On delete")
     }
     
     private var canAddDocument: Bool {

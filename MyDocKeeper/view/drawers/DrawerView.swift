@@ -10,20 +10,39 @@ import SwiftData
 
 struct DrawerView: View {
     var drawer: Drawer
+    var goToDocumentsClicked: () -> Void
+    
     @Query private var documents: [Document]
     
     var body: some View {
-        List(documents.filter { $0.drawer == drawer.name }) { document in
+        let drawerDocuments = documents.filter { $0.drawer == drawer.name }
+        
+        List(drawerDocuments) { document in
             NavigationLink(destination: DocumentView(document: document)) {
                 Text(document.name)
             }
-            .navigationTitle(drawer.name)
+        }
+        .navigationTitle(drawer.name)
+        .overlay {
+            if drawerDocuments.isEmpty {
+                ContentUnavailableView(label: {
+                    Label("no-documents", systemImage: "list.bullet.rectangle.portrait")
+                }, description: {
+                    Text("no-documents-text")
+                }, actions: {
+                    Button("go-to-documents") {
+                        goToDocumentsClicked()
+                    }
+                })
+                .offset(y: -60)
+            }
         }
     }
 }
 
 #Preview {
     DrawerView(
-        drawer: Drawer(name: "Drawer")
+        drawer: Drawer(name: "Drawer"),
+        goToDocumentsClicked: {}
     )
 }

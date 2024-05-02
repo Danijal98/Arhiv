@@ -61,6 +61,8 @@ struct UpdateDocumentView: View {
             let newDrawer = Drawer(name: drawerName)
             document.drawer = newDrawer.name
             context.insert(newDrawer)
+        } else if selectedDrawer != nil {
+            document.drawer = selectedDrawer!.name
         }
     }
 }

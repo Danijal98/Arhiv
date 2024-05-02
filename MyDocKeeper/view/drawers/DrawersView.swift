@@ -27,7 +27,12 @@ struct DrawersView: View {
                     searchTerm.isEmpty ? true :
                     $0.name.localizedCaseInsensitiveContains(searchTerm)
                 }) { drawer in
-                    NavigationLink(destination: DrawerView(drawer: drawer)) {
+                    NavigationLink(
+                        destination: DrawerView(
+                            drawer: drawer,
+                            goToDocumentsClicked: goToDocumentsClicked
+                        )
+                    ) {
                         Text(drawer.name)
                     }
                 }
