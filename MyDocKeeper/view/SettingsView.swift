@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct SettingsView: View {
-    @Environment(\.dismiss) private var dismiss
-    
+struct SettingsView: View {    
     @AppStorage("LOCALE_IDENTIFIER") private var currentLocale: String = "en"
     private let availableLocales = [Locale(identifier: "en"), Locale(identifier: "hr")]
     
@@ -31,11 +29,6 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("choose-language")
-            .navigationBarItems(
-                leading: Button("cancel") {
-                    dismiss()
-                }
-            )
         }
     }
     

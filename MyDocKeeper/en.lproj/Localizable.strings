@@ -15,3 +15,11 @@
 "add" = "Add";
 "done" = "Done";
 "choose-language" = "Choose language";
+"drawers-title" = "Drawers";
+"delete" = "Delete";
+"no" = "No";
+"yes" = "Yes";
+"drawer-alert-message" = "By deleting a drawer, you are deleting all of the documents inside it. Are you sure you want to continue?";
+"no-drawers" = "No drawers";
+"go-to-documents" = "Go to documents";
+"settings-title" = "Settings";

@@ -6,67 +6,34 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct MainView: View {
-    @Environment(\.modelContext) private var context
     
-    @State private var searchTerm: String = ""
-    @State private var showAddDocument = false
-    @State private var showSettings = false
-    @Query private var documents: [Document]
+    @State private var selection: Int = 0
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(documents.filter {
-                    searchTerm.isEmpty ? true : 
-                    $0.name.localizedCaseInsensitiveContains(searchTerm) ||
-                    $0.drawer.localizedCaseInsensitiveContains(searchTerm)
-                }) { document in
-                    NavigationLink(destination: DocumentView(document: document)) {
-                        Text(document.name)
-                    }
+        TabView(selection: $selection) {
+            DocumentsView()
+                .tabItem {
+                    Label("documents-title", systemImage: "list.bullet.rectangle.portrait")
                 }
-                .onDelete { indexSet in
-                    for index in indexSet {
-                        context.delete(documents[index])
-                    }
+                .tag(0)
+            
+            DrawersView(
+                goToDocumentsClicked: {
+                    selection = 0
                 }
+            )
+            .tabItem {
+                Label("drawers-title", systemImage: "list.bullet.rectangle.portrait")
             }
-            .navigationTitle("documents-title")
-            .navigationBarItems(
-                leading: Button(action: {
-                    showSettings.toggle()
-                }, label: {
-                    Image(systemName: "gear")
-                }),
-                trailing: Button(action: {
-                    showAddDocument.toggle()
-                }) {
-                    Image(systemName: "plus")
-                })
-            .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always))
-            .sheet(isPresented: $showAddDocument) {
-                AddDocumentView()
-            }
-            .sheet(isPresented: $showSettings) {
-                SettingsView()
-            }
-            .overlay {
-                if documents.isEmpty {
-                    ContentUnavailableView(label: {
-                        Label("no-documents", systemImage: "list.bullet.rectangle.portrait")
-                    }, description: {
-                        Text("no-documents-text")
-                    }, actions: {
-                        Button("add-document") {
-                            showAddDocument = true
-                        }
-                    })
-                    .offset(y: -60)
+            .tag(1)
+            
+            SettingsView()
+                .tabItem {
+                    Label("settings-title", systemImage: "gear")
                 }
-            }
+                .tag(2)
         }
     }
 }
