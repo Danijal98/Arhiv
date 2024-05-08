@@ -1,5 +1,5 @@
 //
-//  UpdateDrawerView.swift
+//  UpdateLocationView.swift
 //  MyDocKeeper
 //
 //  Created by Danijal Azerovic on 5/2/24.
@@ -8,45 +8,45 @@
 import SwiftUI
 import SwiftData
 
-struct UpdateDrawerView: View {
+struct UpdateLocationView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     
-    @Bindable var drawer: Drawer
-    @State private var oldDrawerName: String = ""
+    @Bindable var location: Location
+    @State private var oldLocationName: String = ""
     @Query private var documents: [Document]
     
-    private var canUpdateDrawer: Bool {
-        !drawer.name.isEmpty
+    private var canUpdateLocation: Bool {
+        !location.name.isEmpty
     }
     
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Drawer name", text: $drawer.name)
+                TextField("location-name", text: $location.name)
             }
             .navigationTitle("add-document")
             .onAppear {
-                self.oldDrawerName = drawer.name
+                self.oldLocationName = location.name
             }
             .navigationBarItems(
                 leading: Button("cancel") {
-                    drawer.name = oldDrawerName
+                    location.name = oldLocationName
                     dismiss()
                 },
                 trailing: Button("done") {
                     dismiss()
-                    updateDrawer()
+                    updateLocation()
                 }
-                    .disabled(!canUpdateDrawer)
+                    .disabled(!canUpdateLocation)
             )
         }
     }
     
-    private func updateDrawer() {
+    private func updateLocation() {
         for document in documents {
-            if (document.drawer == oldDrawerName) {
-                document.drawer = drawer.name
+            if (document.location == oldLocationName) {
+                document.location = location.name
             }
         }
     }
@@ -54,5 +54,5 @@ struct UpdateDrawerView: View {
 }
 
 #Preview {
-    UpdateDrawerView(drawer: Drawer(name: "Drawer"))
+    UpdateLocationView(location: Location(name: "Location"))
 }

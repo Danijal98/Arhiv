@@ -12,24 +12,24 @@ struct AddDocumentView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     
-    @Query private var drawers: [Drawer]
+    @Query private var locations: [Location]
     @State private var name: String = ""
     @State private var description: String = ""
-    @State private var selectedDrawer: Drawer?
-    @State private var newDrawerName: String = ""
+    @State private var selectedLocation: Location?
+    @State private var newLocationName: String = ""
     
     var body: some View {
         NavigationStack {
             Form {
                 TextField("document-name", text: $name)
-                Picker("document-select-drawer", selection: $selectedDrawer) {
-                    ForEach(drawers, id: \.self) { drawer in
-                        Text(drawer.name).tag(drawer as Drawer?)
+                Picker("document-select-location", selection: $selectedLocation) {
+                    ForEach(locations, id: \.self) { location in
+                        Text(location.name).tag(location as Location?)
                     }
-                    Text("document-add-new-drawer").tag(nil as Drawer?)
+                    Text("document-add-new-location").tag(nil as Location?)
                 }
-                if selectedDrawer == nil {
-                    TextField("document-new-drawer-name", text: $newDrawerName)
+                if selectedLocation == nil {
+                    TextField("document-new-location-name", text: $newLocationName)
                 }
                 TextField("document-description", text: $description, axis: .vertical)
             }
@@ -48,16 +48,16 @@ struct AddDocumentView: View {
     }
     
     private var canAddDocument: Bool {
-        !name.isEmpty && (selectedDrawer != nil || !newDrawerName.isEmpty)
+        !name.isEmpty && (selectedLocation != nil || !newLocationName.isEmpty)
     }
     
     private func addDocument() {
-        let drawerName = selectedDrawer?.name ?? newDrawerName
-        if selectedDrawer == nil, !drawerName.isEmpty {
-            let newDrawer = Drawer(name: drawerName)
-            context.insert(newDrawer)
+        let locationName = selectedLocation?.name ?? newLocationName
+        if selectedLocation == nil, !locationName.isEmpty {
+            let newLocation = Location(name: locationName)
+            context.insert(newLocation)
         }
-        let newDocument = Document(name: name, drawer: drawerName, documentDescription: description)
+        let newDocument = Document(name: name, location: locationName, documentDescription: description)
         context.insert(newDocument)
     }
 }

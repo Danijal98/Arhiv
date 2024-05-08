@@ -14,6 +14,6 @@ struct MyDocKeeperApp: App {
         WindowGroup {
             MainView()
         }
-        .modelContainer(for: [Document.self, Drawer.self])
+        .modelContainer(for: [Document.self, Location.self])
     }
 }

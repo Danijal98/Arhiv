@@ -11,12 +11,12 @@ import SwiftData
 @Model
 class Document {
     @Attribute(.unique) var name: String
-    var drawer: String
+    var location: String
     var documentDescription: String
     
-    init(name: String, drawer: String, documentDescription: String) {
+    init(name: String, location: String, documentDescription: String) {
         self.name = name
-        self.drawer = drawer
+        self.location = location
         self.documentDescription = documentDescription
     }
 }

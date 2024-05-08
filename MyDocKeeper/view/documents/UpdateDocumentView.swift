@@ -15,25 +15,25 @@ struct UpdateDocumentView: View {
     @Bindable var document: Document
     
     @State private var oldDocumentName: String = ""
-    @State private var oldDocumentDrawer: String = ""
+    @State private var oldDocumentLocation: String = ""
     @State private var oldDocumentDescription: String = ""
     
-    @Query private var drawers: [Drawer]
-    @State private var selectedDrawer: Drawer?
-    @State private var newDrawerName: String = ""
+    @Query private var locations: [Location]
+    @State private var selectedLocation: Location?
+    @State private var newLocationName: String = ""
     
     var body: some View {
         NavigationStack {
             Form {
                 TextField("document-name", text: $document.name)
-                Picker("document-select-drawer", selection: $selectedDrawer) {
-                    ForEach(drawers, id: \.self) { drawer in
-                        Text(drawer.name).tag(drawer as Drawer?)
+                Picker("document-select-location", selection: $selectedLocation) {
+                    ForEach(locations, id: \.self) { location in
+                        Text(location.name).tag(location as Location?)
                     }
-                    Text("document-add-new-drawer").tag(nil as Drawer?)
+                    Text("document-add-new-location").tag(nil as Location?)
                 }
-                if selectedDrawer == nil {
-                    TextField("document-new-drawer-name", text: $newDrawerName)
+                if selectedLocation == nil {
+                    TextField("document-new-location-name", text: $newLocationName)
                 }
                 
                 TextField("document-description", text: $document.documentDescription, axis: .vertical)
@@ -45,43 +45,43 @@ struct UpdateDocumentView: View {
                     dismiss()
                 },
                 trailing: Button("done") {
-                    addDrawer()
+                    addLocation()
                     dismiss()
                 }
                     .disabled(!canUpdateDocument)
             )
             .onAppear {
-                selectedDrawer = drawers.first { $0.name == document.drawer }
+                selectedLocation = locations.first { $0.name == document.location }
                 
                 oldDocumentName = document.name
-                oldDocumentDrawer = document.drawer
+                oldDocumentLocation = document.location
                 oldDocumentDescription = document.documentDescription
             }
         }
     }
     
     private var canUpdateDocument: Bool {
-        !document.name.isEmpty && (selectedDrawer != nil || !newDrawerName.isEmpty)
+        !document.name.isEmpty && (selectedLocation != nil || !newLocationName.isEmpty)
     }
     
-    private func addDrawer() {
-        let drawerName = selectedDrawer?.name ?? newDrawerName
-        if selectedDrawer == nil, !drawerName.isEmpty {
-            let newDrawer = Drawer(name: drawerName)
-            document.drawer = newDrawer.name
-            context.insert(newDrawer)
-        } else if selectedDrawer != nil {
-            document.drawer = selectedDrawer!.name
+    private func addLocation() {
+        let locationName = selectedLocation?.name ?? newLocationName
+        if selectedLocation == nil, !locationName.isEmpty {
+            let newLocation = Location(name: locationName)
+            document.location = newLocation.name
+            context.insert(newLocation)
+        } else if selectedLocation != nil {
+            document.location = selectedLocation!.name
         }
     }
     
     private func revertDocument() {
         document.name = oldDocumentName
-        document.drawer = oldDocumentDrawer
+        document.location = oldDocumentLocation
         document.documentDescription = oldDocumentDescription
     }
 }
 
 #Preview {
-    UpdateDocumentView(document: Document(name: "Document", drawer: "Drawer", documentDescription: "Description"))
+    UpdateDocumentView(document: Document(name: "Document", location: "Location", documentDescription: "Description"))
 }

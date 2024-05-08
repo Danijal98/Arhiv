@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA53EC602BDECB560099FA08 /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53EC5F2BDECB560099FA08 /* DrawerView.swift */; };
+		FA53EC602BDECB560099FA08 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53EC5F2BDECB560099FA08 /* LocationView.swift */; };
 		FA53EC622BDECB620099FA08 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53EC612BDECB620099FA08 /* DocumentView.swift */; };
 		FA53EC642BDECB710099FA08 /* AddDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53EC632BDECB710099FA08 /* AddDocumentView.swift */; };
 		FA53EC692BDF09D40099FA08 /* UpdateDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53EC682BDF09D40099FA08 /* UpdateDocumentView.swift */; };
 		FA53EC6E2BDF0FD00099FA08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA53EC6D2BDF0FD00099FA08 /* Localizable.strings */; };
 		FA53EC722BDFA77B0099FA08 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53EC712BDFA77B0099FA08 /* SettingsView.swift */; };
 		FA9CED202BE3B175006248B8 /* DocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CED1F2BE3B175006248B8 /* DocumentsView.swift */; };
-		FA9CED242BE3B256006248B8 /* DrawersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CED232BE3B256006248B8 /* DrawersView.swift */; };
-		FA9CED262BE3E3FE006248B8 /* UpdateDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CED252BE3E3FE006248B8 /* UpdateDrawerView.swift */; };
+		FA9CED242BE3B256006248B8 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CED232BE3B256006248B8 /* LocationsView.swift */; };
+		FA9CED262BE3E3FE006248B8 /* UpdateLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CED252BE3E3FE006248B8 /* UpdateLocationView.swift */; };
 		FAE03F2B2BDEB4B8001C9C45 /* MyDocKeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F2A2BDEB4B8001C9C45 /* MyDocKeeperApp.swift */; };
 		FAE03F2D2BDEB4B8001C9C45 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F2C2BDEB4B8001C9C45 /* MainView.swift */; };
 		FAE03F312BDEB4BA001C9C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE03F302BDEB4BA001C9C45 /* Assets.xcassets */; };
@@ -24,7 +24,7 @@
 		FAE03F482BDEB4BA001C9C45 /* MyDocKeeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F472BDEB4BA001C9C45 /* MyDocKeeperUITests.swift */; };
 		FAE03F4A2BDEB4BA001C9C45 /* MyDocKeeperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F492BDEB4BA001C9C45 /* MyDocKeeperUITestsLaunchTests.swift */; };
 		FAE03F582BDEB79B001C9C45 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F572BDEB79B001C9C45 /* Document.swift */; };
-		FAE03F5B2BDEBC61001C9C45 /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F5A2BDEBC61001C9C45 /* Drawer.swift */; };
+		FAE03F5B2BDEBC61001C9C45 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE03F5A2BDEBC61001C9C45 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA53EC5F2BDECB560099FA08 /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		FA53EC5F2BDECB560099FA08 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		FA53EC612BDECB620099FA08 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		FA53EC632BDECB710099FA08 /* AddDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDocumentView.swift; sourceTree = "<group>"; };
 		FA53EC682BDF09D40099FA08 /* UpdateDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocumentView.swift; sourceTree = "<group>"; };
@@ -53,8 +53,8 @@
 		FA53EC702BDF12440099FA08 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA53EC712BDFA77B0099FA08 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA9CED1F2BE3B175006248B8 /* DocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsView.swift; sourceTree = "<group>"; };
-		FA9CED232BE3B256006248B8 /* DrawersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawersView.swift; sourceTree = "<group>"; };
-		FA9CED252BE3E3FE006248B8 /* UpdateDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDrawerView.swift; sourceTree = "<group>"; };
+		FA9CED232BE3B256006248B8 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
+		FA9CED252BE3E3FE006248B8 /* UpdateLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationView.swift; sourceTree = "<group>"; };
 		FAE03F272BDEB4B8001C9C45 /* MyDocKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDocKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE03F2A2BDEB4B8001C9C45 /* MyDocKeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocKeeperApp.swift; sourceTree = "<group>"; };
 		FAE03F2C2BDEB4B8001C9C45 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		FAE03F472BDEB4BA001C9C45 /* MyDocKeeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocKeeperUITests.swift; sourceTree = "<group>"; };
 		FAE03F492BDEB4BA001C9C45 /* MyDocKeeperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocKeeperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FAE03F572BDEB79B001C9C45 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		FAE03F5A2BDEBC61001C9C45 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
+		FAE03F5A2BDEBC61001C9C45 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +108,9 @@
 		FA9CED222BE3B245006248B8 /* drawers */ = {
 			isa = PBXGroup;
 			children = (
-				FA53EC5F2BDECB560099FA08 /* DrawerView.swift */,
-				FA9CED232BE3B256006248B8 /* DrawersView.swift */,
-				FA9CED252BE3E3FE006248B8 /* UpdateDrawerView.swift */,
+				FA53EC5F2BDECB560099FA08 /* LocationView.swift */,
+				FA9CED232BE3B256006248B8 /* LocationsView.swift */,
+				FA9CED252BE3E3FE006248B8 /* UpdateLocationView.swift */,
 			);
 			path = drawers;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				FAE03F572BDEB79B001C9C45 /* Document.swift */,
-				FAE03F5A2BDEBC61001C9C45 /* Drawer.swift */,
+				FAE03F5A2BDEBC61001C9C45 /* Location.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -327,15 +327,15 @@
 			files = (
 				FA53EC692BDF09D40099FA08 /* UpdateDocumentView.swift in Sources */,
 				FA9CED202BE3B175006248B8 /* DocumentsView.swift in Sources */,
-				FAE03F5B2BDEBC61001C9C45 /* Drawer.swift in Sources */,
+				FAE03F5B2BDEBC61001C9C45 /* Location.swift in Sources */,
 				FA53EC622BDECB620099FA08 /* DocumentView.swift in Sources */,
 				FA53EC722BDFA77B0099FA08 /* SettingsView.swift in Sources */,
 				FAE03F2D2BDEB4B8001C9C45 /* MainView.swift in Sources */,
 				FA53EC642BDECB710099FA08 /* AddDocumentView.swift in Sources */,
 				FAE03F2B2BDEB4B8001C9C45 /* MyDocKeeperApp.swift in Sources */,
-				FA9CED262BE3E3FE006248B8 /* UpdateDrawerView.swift in Sources */,
-				FA9CED242BE3B256006248B8 /* DrawersView.swift in Sources */,
-				FA53EC602BDECB560099FA08 /* DrawerView.swift in Sources */,
+				FA9CED262BE3E3FE006248B8 /* UpdateLocationView.swift in Sources */,
+				FA9CED242BE3B256006248B8 /* LocationsView.swift in Sources */,
+				FA53EC602BDECB560099FA08 /* LocationView.swift in Sources */,
 				FAE03F582BDEB79B001C9C45 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

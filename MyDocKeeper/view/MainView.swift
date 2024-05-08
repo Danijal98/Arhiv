@@ -15,17 +15,17 @@ struct MainView: View {
         TabView(selection: $selection) {
             DocumentsView()
                 .tabItem {
-                    Label("documents-title", systemImage: "list.bullet.rectangle.portrait")
+                    Label("documents-title", systemImage: "list.bullet.clipboard")
                 }
                 .tag(0)
             
-            DrawersView(
+            LocationsView(
                 goToDocumentsClicked: {
                     selection = 0
                 }
             )
             .tabItem {
-                Label("drawers-title", systemImage: "list.bullet.rectangle.portrait")
+                Label("locations-title", systemImage: "safari")
             }
             .tag(1)
             

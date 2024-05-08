@@ -1,5 +1,5 @@
 //
-//  DrawerView.swift
+//  LocationView.swift
 //  MyDocKeeper
 //
 //  Created by Danijal Azerovic on 4/28/24.
@@ -8,32 +8,32 @@
 import SwiftUI
 import SwiftData
 
-struct DrawerView: View {
-    var drawer: Drawer
+struct LocationView: View {
+    var location: Location
     var goToDocumentsClicked: () -> Void
     
     @State private var showEdit = false
     @Query private var documents: [Document]
     
     var body: some View {
-        let drawerDocuments = documents.filter { $0.drawer == drawer.name }
+        let locationDocuments = documents.filter { $0.location == location.name }
         
-        List(drawerDocuments) { document in
+        List(locationDocuments) { document in
             NavigationLink(destination: DocumentView(document: document)) {
                 Text(document.name)
             }
         }
-        .navigationTitle(drawer.name)
+        .navigationTitle(location.name)
         .navigationBarItems(trailing: Button(action: {
             showEdit = true
         }) {
             Text("edit")
         })
         .sheet(isPresented: $showEdit) {
-            UpdateDrawerView(drawer: drawer)
+            UpdateLocationView(location: location)
         }
         .overlay {
-            if drawerDocuments.isEmpty {
+            if locationDocuments.isEmpty {
                 ContentUnavailableView(label: {
                     Label("no-documents", systemImage: "list.bullet.rectangle.portrait")
                 }, description: {
@@ -50,8 +50,8 @@ struct DrawerView: View {
 }
 
 #Preview {
-    DrawerView(
-        drawer: Drawer(name: "Drawer"),
+    LocationView(
+        location: Location(name: "Location"),
         goToDocumentsClicked: {}
     )
 }

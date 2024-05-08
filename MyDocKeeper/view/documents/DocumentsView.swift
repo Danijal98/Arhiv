@@ -21,7 +21,7 @@ struct DocumentsView: View {
                 ForEach(documents.filter {
                     searchTerm.isEmpty ? true :
                     $0.name.localizedCaseInsensitiveContains(searchTerm) ||
-                    $0.drawer.localizedCaseInsensitiveContains(searchTerm)
+                    $0.location.localizedCaseInsensitiveContains(searchTerm)
                 }) { document in
                     NavigationLink(destination: DocumentView(document: document)) {
                         Text(document.name)
