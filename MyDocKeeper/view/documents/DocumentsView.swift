@@ -13,7 +13,7 @@ struct DocumentsView: View {
     
     @State private var searchTerm: String = ""
     @State private var showAddDocument = false
-    @Query private var documents: [Document]
+    @Query(sort: \Document.name) private var documents: [Document]
     
     var body: some View {
         NavigationStack {
@@ -21,7 +21,7 @@ struct DocumentsView: View {
                 ForEach(documents.filter {
                     searchTerm.isEmpty ? true :
                     $0.name.localizedCaseInsensitiveContains(searchTerm) ||
-                    $0.location.localizedCaseInsensitiveContains(searchTerm)
+                    $0.location?.name.localizedCaseInsensitiveContains(searchTerm) ?? false
                 }) { document in
                     NavigationLink(destination: DocumentView(document: document)) {
                         Text(document.name)

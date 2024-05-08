@@ -52,12 +52,10 @@ struct AddDocumentView: View {
     }
     
     private func addDocument() {
-        let locationName = selectedLocation?.name ?? newLocationName
-        if selectedLocation == nil, !locationName.isEmpty {
-            let newLocation = Location(name: locationName)
-            context.insert(newLocation)
-        }
-        let newDocument = Document(name: name, location: locationName, documentDescription: description)
+        let fallbackLocation = locations.first(where: { $0.name == newLocationName }) ?? Location(name: newLocationName)
+        let location = selectedLocation ?? fallbackLocation
+
+        let newDocument = Document(name: name, location: location, documentDescription: description)
         context.insert(newDocument)
     }
 }

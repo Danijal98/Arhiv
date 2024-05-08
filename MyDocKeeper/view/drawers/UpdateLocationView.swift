@@ -36,21 +36,11 @@ struct UpdateLocationView: View {
                 },
                 trailing: Button("done") {
                     dismiss()
-                    updateLocation()
                 }
                     .disabled(!canUpdateLocation)
             )
         }
     }
-    
-    private func updateLocation() {
-        for document in documents {
-            if (document.location == oldLocationName) {
-                document.location = location.name
-            }
-        }
-    }
-    
 }
 
 #Preview {

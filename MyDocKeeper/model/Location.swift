@@ -10,7 +10,9 @@ import SwiftData
 
 @Model
 class Location {
-    @Attribute(.unique) var name: String
+    var name: String
+    @Relationship(deleteRule: .cascade, inverse: \Document.location)
+    var documents = [Document]()
     
     init(name: String) {
         self.name = name

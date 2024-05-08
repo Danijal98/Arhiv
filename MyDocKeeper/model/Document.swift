@@ -11,10 +11,10 @@ import SwiftData
 @Model
 class Document {
     @Attribute(.unique) var name: String
-    var location: String
+    var location: Location?
     var documentDescription: String
     
-    init(name: String, location: String, documentDescription: String) {
+    init(name: String, location: Location, documentDescription: String) {
         self.name = name
         self.location = location
         self.documentDescription = documentDescription

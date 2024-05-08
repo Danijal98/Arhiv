@@ -17,7 +17,7 @@ struct LocationsView: View {
     @State private var indexSetToDelete: IndexSet = IndexSet()
     
     @State private var searchTerm: String = ""
-    @Query private var locations: [Location]
+    @Query(sort: \Location.name) private var locations: [Location]
     @Query private var documents: [Document]
     
     var body: some View {
@@ -70,12 +70,6 @@ struct LocationsView: View {
     
     private func deleteLocation(indexSet: IndexSet) {
         for index in indexSet {
-            let documentsToDelete = documents.filter { document in
-                document.location == locations[index].name
-            }
-            for document in documentsToDelete {
-                context.delete(document)
-            }
             context.delete(locations[index])
         }
     }

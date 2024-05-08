@@ -16,7 +16,7 @@ struct LocationView: View {
     @Query private var documents: [Document]
     
     var body: some View {
-        let locationDocuments = documents.filter { $0.location == location.name }
+        let locationDocuments = documents.filter { $0.location?.name == location.name }
         
         List(locationDocuments) { document in
             NavigationLink(destination: DocumentView(document: document)) {

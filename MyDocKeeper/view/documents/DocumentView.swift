@@ -16,12 +16,14 @@ struct DocumentView: View {
         List {
             listItemHorizontal(title: "document-name", value: document.name)
             
-            NavigationLink(destination: LocationView(
-                location: Location(name: document.location),
-                goToDocumentsClicked: {}
+            if let location = document.location {
+                NavigationLink(destination: LocationView(
+                    location: location,
+                    goToDocumentsClicked: {}
                 )
-            ) {
-                listItemHorizontal(title: "document-located-in", value: document.location)
+                ) {
+                    listItemHorizontal(title: "document-located-in", value: location.name)
+                }
             }
             
             if !document.documentDescription.isEmpty {
@@ -58,5 +60,5 @@ struct DocumentView: View {
 }
 
 #Preview {
-    DocumentView(document: Document(name: "Document", location: "Location", documentDescription: "Description"))
+    DocumentView(document: Document(name: "Document", location: Location(name: "Location"), documentDescription: "Description"))
 }

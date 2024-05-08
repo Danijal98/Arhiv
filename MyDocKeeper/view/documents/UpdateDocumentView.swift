@@ -51,10 +51,10 @@ struct UpdateDocumentView: View {
                     .disabled(!canUpdateDocument)
             )
             .onAppear {
-                selectedLocation = locations.first { $0.name == document.location }
+                selectedLocation = locations.first { $0 == document.location }
                 
                 oldDocumentName = document.name
-                oldDocumentLocation = document.location
+                oldDocumentLocation = document.location?.name ?? ""
                 oldDocumentDescription = document.documentDescription
             }
         }
@@ -65,23 +65,19 @@ struct UpdateDocumentView: View {
     }
     
     private func addLocation() {
-        let locationName = selectedLocation?.name ?? newLocationName
-        if selectedLocation == nil, !locationName.isEmpty {
-            let newLocation = Location(name: locationName)
-            document.location = newLocation.name
-            context.insert(newLocation)
-        } else if selectedLocation != nil {
-            document.location = selectedLocation!.name
-        }
+        let fallbackLocation = locations.first(where: { $0.name == newLocationName }) ?? Location(name: newLocationName)
+        let location = selectedLocation ?? fallbackLocation
+        
+        document.location = location
     }
     
     private func revertDocument() {
         document.name = oldDocumentName
-        document.location = oldDocumentLocation
+        document.location?.name = oldDocumentLocation
         document.documentDescription = oldDocumentDescription
     }
 }
 
 #Preview {
-    UpdateDocumentView(document: Document(name: "Document", location: "Location", documentDescription: "Description"))
+    UpdateDocumentView(document: Document(name: "Document", location: Location(name: "Location"), documentDescription: "Description"))
 }
